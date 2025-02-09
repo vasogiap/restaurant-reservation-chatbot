@@ -1,0 +1,236 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - Thanks, goodbye
+- intent: affirm
+  examples: |
+    - Yes
+    - Yeah
+    - Yep
+    - Sure
+    - Absolutely
+    - Of course
+    - Definitely
+    - That's right
+    - Correct
+    - Sounds good
+    - Okay
+    - OK
+    - Sure thing
+    - I agree
+    - You got it
+    - Affirmative
+    - That works
+    - That's fine
+    - Fine with me
+    - Makes sense
+    - No problem
+    - Why not
+    - Go ahead
+    - I'd love that
+    - I confirm
+    - Looks good
+    - Works for me
+    - Perfect
+    - Great
+    - Fantastic
+    - Awesome
+    - Let's do it
+    - I accept
+- intent: deny
+  examples: |
+    - No
+    - Nope
+    - No way
+    - Not at all
+    - I don't think so
+    - I disagree
+    - That's incorrect
+    - I don't want that
+    - Absolutely not
+    - Never
+    - Nah
+    - Not really
+    - I don't accept
+    - I refuse
+    - Wrong
+    - That's not right
+    - I don't think so
+    - Negative
+    - Not interested
+    - No, thank you
+    - I'm not good
+    - Doesn't work for me
+    - I decline
+    - I reject that
+    - Not this time
+    - Not now
+    - I'd rather not
+    - Forget it
+    - Let's not
+- intent: book_table
+  examples: |
+    - I want to book a table
+    - Reserve a table for me
+    - I need to make a reservation
+    - i want to book a table
+- intent: delete_booking
+  examples: |
+    - I want to cancel my booking
+    - Can you delete my reservation?
+    - Remove my table booking
+    - I no longer need my reservation
+- intent: inform_cuisine
+  examples: |
+    - I like [italian](cuisine)
+    - i want [greek](cuisine) food
+    - i prefer [chinese](cuisine) please
+    - [thai](cuisine) please
+    - I like [Greek](cuisine) food
+    - I want [Greek](cuisine) cuisine
+    - Do you have any [Greek](cuisine) restaurants?
+    - I'm craving some [Greek](cuisine) dishes
+    - I would love to eat [Greek](cuisine) today
+    - Show me [Greek](cuisine) restaurant options
+    - I like [Thai](cuisine) food
+    - I want [Thai](cuisine) cuisine
+    - Do you have any [Thai](cuisine) restaurants?
+    - I'm craving some [Thai](cuisine) dishes
+    - I would love to eat [Thai](cuisine) today
+    - Show me [Thai](cuisine) restaurant options
+    - I like [Italian](cuisine) food
+    - I want [Italian](cuisine) cuisine
+    - Do you have any [Italian](cuisine) restaurants?
+    - I'm craving some [Italian](cuisine) dishes
+    - I would love to eat [Italian](cuisine) today
+    - Show me [Italian](cuisine) restaurant options
+    - I like [Chinese](cuisine) food
+    - I want [Chinese](cuisine) cuisine
+    - Do you have any [Chinese](cuisine) restaurants?
+    - I'm craving some [Chinese](cuisine) dishes
+    - I would love to eat [Chinese](cuisine) today
+    - Show me [Chinese](cuisine) restaurant options
+    - i want [greek](cuisine) cuisine
+    - I like [Italian]{"entity": "cuisine", "value": "italian"}
+- intent: ask_cuisine
+  examples: |
+    - What cuisines do you offer?
+    - What type of food do you serve?
+    - Can you tell me what cuisines are available?
+    - What kind of cuisine do you have?
+    - Do you serve Italian food?
+    - Is Chinese food available at your restaurant?
+    - Do you have vegetarian options?
+    - What kind of food can I get here?
+    - Can you list the cuisines you offer?
+    - I want to know the available cuisines.
+    - Do you serve Mexican dishes?
+    - Do you have Indian food on the menu?
+    - What types of cuisine do you specialize in?
+    - Is there any Japanese food available?
+    - Do you have vegan or gluten-free options?
+    - What are your specialty cuisines?
+    - Are there Mediterranean dishes available?
+    - Can I get Thai food here?
+    - What is the main type of cuisine you offer?
+    - Do you serve burgers and fast food?
+    - What [greek](cuisine) restaurants are available?
+    - Can you show me [italian](cuisine) restaurants?
+    - Are there any [chinese](cuisine) restaurants nearby?
+    - Can you list the restaurants with [thai](cuisine) food?
+    - What are the best [italian](cuisine) restaurants near me?
+    - Show me the [chinese](cuisine) restaurants close to me.
+    - What [greek](cuisine) restaurants do you recommend?
+    - Are there any [greek](cuisine) restaurants nearby?
+    - Where can I  eat [italian](cuisine) food right now?
+    - Can I know what [greek](cuisine) restaurants are in the city?
+    - What places serve [chinese](cuisine) food around here?
+    - Could you list open [chinese](cuisine) restaurants?
+    - Tell me about the [thai](cuisine) restaurants I can go to.
+    - Which [thai](cuisine) restaurants are nearby?
+    - Are there any [thai](cuisine) restaurants offering dine-in services now?
+    - Can you show me a list of [greek](cuisine) restaurants in this area?
+    - what cuisines are available?
+    - What are the available cuisines?
+    - 20/5/25
+- intent: ask_restaurants
+  examples: |
+    - What restaurants are available?
+    - Can you list the restaurants near me?
+    - Which restaurants are open now?
+    - Are there any good restaurants nearby?
+    - Tell me the restaurants available in my area.
+    - What dining options do I have?
+    - Show me the restaurants close to me.
+    - Which places are open for dining?
+    - Can you suggest some nearby restaurants?
+    - What restaurants do you recommend?
+    - Are there any restaurants nearby?
+    - Where can I eat right now?
+    - What are the best restaurants near me?
+    - Can I know what restaurants are in the city?
+    - What places serve food around here?
+    - Could you list open restaurants?
+    - Tell me about the restaurants I can go to.
+    - Which restaurants are nearby?
+    - Are there any restaurants offering dine-in services now?
+    - Can you show me a list of restaurants in this area?
+- intent: ask_weather_for_place
+  examples: |
+    - What's the weather like in [Athens](place)?
+    - How is the weather in [New York](place)?
+    - Tell me the weather in [Paris](place).
+    - Can you check the weather in [London](place)?
+    - What's the temperature in [Tokyo](place)?
+    - Is it raining in [Berlin](place)?
+    - Will it be sunny in [Rome](place) today?
+    - How's the forecast for [Madrid](place)?
+    - What's the weather forecast for [Dubai](place)?
+    - Check the weather conditions in [Sydney](place).
+    - Do I need an umbrella in [Chicago](place)?
+    - Will it snow in [Moscow](place) tomorrow?
+    - How hot is it in [Los Angeles](place) right now?
+    - Is it cold in [Toronto](place)?
+    - What's the weather report for [Seoul](place)?
+    - Is it windy in [San Francisco](place)?
+    - Can you give me the weather update for [Mumbai](place)?
+    - What's the weather in [Cape Town](place) this weekend?
+    - Will it be cloudy in [Istanbul](place) tomorrow?
+    - What's the humidity level in [Singapore](place)?  - What's the weather like?
+- intent: inform
+  examples: |
+    - For {people} people on {date} at {time}
+    - {people} people on {date}
+    - {date} at {time}
+- lookup: cuisine
+  examples: |
+    - italian
+    - greek
+    - chinese
+    - thai
