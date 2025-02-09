@@ -1,0 +1,143 @@
+version: '3.1'
+intents:
+- affirm
+- ask_cuisine
+- ask_restaurants
+- book_table
+- delete_booking
+- deny
+- goodbye
+- greet
+- inform
+- inform_cuisine
+- ask_weather_for_place
+entities:
+- cuisine
+- restaurant_name
+- customer_name
+- cancel_customer_name
+- date
+- time
+- people
+- place
+responses:
+  utter_greet:
+  - text: Hello! How can I assist you today?
+  utter_goodbye:
+  - text: Goodbye! Have a great day!
+  utter_ask_customer_name:
+  - text: What is your name?
+  utter_ask_cancel_customer_name:
+  - text: What is your name for the reservation?
+  utter_ask_date:
+  - text: What date would you like to book a table for?
+  utter_ask_time:
+  - text: What time should I reserve the table?
+  utter_ask_people:
+  - text: How many people will be joining?
+  utter_no_booking_found:
+  - text: I couldn't find any existing booking to update or cancel.
+  utter_cuisine:
+  - text: The available cuisines are italian, greek, chinese, thai
+  utter_ask_restaurant_name:
+  - text: Which restaurant do you prefer?
+  utter_submit:
+  - text: Ok. Thanks!
+  utter_slots_values:
+  - text: Great! I have booked a table at {restaurant_name} on {date} at {time} for {people} people under the name {customer_name}.
+  utter_aks_confirm:
+  - text: Are you ok?
+actions:
+- utter_slots_values
+- utter_goodbye
+- action_find_restaurants
+- utter_cuisine
+- utter_greet
+- utter_submit
+- utter_change_booking
+- utter_cancel_booking
+- utter_no_booking_found
+- action_list_available_restaurants
+- action_fetch_weather
+- action_book_table
+- action_submit_booking
+- action_change_booking
+- action_cancel_booking
+- action_reset_all_slots
+- action_fetch_weather_for_place
+- action_save_booking
+- action_delete_booking
+slots:
+  place:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: place
+  cuisine:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: cuisine
+  restaurant_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: restaurant_booking_form
+        requested_slot: restaurant_name
+  customer_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: restaurant_booking_form
+        requested_slot: customer_name
+  date:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: restaurant_booking_form
+        requested_slot: date
+  time:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: restaurant_booking_form
+        requested_slot: time
+  people:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: restaurant_booking_form
+        requested_slot: people
+  cancel_customer_name:
+      type: text
+      influence_conversation: true
+      mappings:
+      - type: from_text
+        conditions:
+        - active_loop: cancel_booking_form
+          requested_slot: cancel_customer_name
+forms:
+  restaurant_booking_form:
+    required_slots:
+    - restaurant_name
+    - date
+    - time
+    - people
+    - customer_name
+  cancel_booking_form:
+    required_slots:
+    - cancel_customer_name
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
